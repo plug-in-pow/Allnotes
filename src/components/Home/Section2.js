@@ -3,63 +3,28 @@ import React, { Component } from "react";
 class Section2 extends Component {
   render() {
     return (
-      <div className=" blue darken-4 ">
-        <div class="row hide-on-med-and-down">
-          <div class="col s4 center-align">
+      <div className="section2">
+        <div className="row">
+          <div className="col s12 m4">
             <IconBlock
               icon="settings"
               title="Easy to Work With"
-              descr="We did most of the heavy lifting for you to provide a default stylings that 
-            incorporate our custom components. Additionally, we refined animations and transitions 
-            to provide a smoother experience for developers."
+              descr="With simple UI and minimalistic features anyone can easily get start working with it."
             />
           </div>
-          <div class="col s4 center-align">
+          <div className="col s12 m4">
             <IconBlock
               icon="edit"
-              title="Easy to Work With"
-              descr="We did most of the heavy lifting for you to provide a default stylings that 
-            incorporate our custom components. Additionally, we refined animations and transitions 
-            to provide a smoother experience for developers."
+              title="Editable"
+              descr="You can edit anytime and anywhere by signing up with your credentials, 
+              with recent update detail."
             />
           </div>
-          <div class="col s4 center-align">
+          <div className="col s12 m4">
             <IconBlock
               icon="assignment"
-              title="Easy to Work With"
-              descr="We did most of the heavy lifting for you to provide a default stylings that 
-            incorporate our custom components. Additionally, we refined animations and transitions 
-            to provide a smoother experience for developers."
-            />
-          </div>
-        </div>
-
-        <div class="col hide-on-large-only">
-          <div class="row s4 center-align">
-            <IconBlock
-              icon="settings"
-              title="Easy to Work With"
-              descr="We did most of the heavy lifting for you to provide a default stylings that 
-              incorporate our custom components. Additionally, we refined animations and transitions 
-              to provide a smoother experience for developers."
-            />
-          </div>
-          <div class="row s4 center-align">
-            <IconBlock
-              icon="edit"
-              title="Easy to Work With"
-              descr="We did most of the heavy lifting for you to provide a default stylings that 
-            incorporate our custom components. Additionally, we refined animations and transitions 
-            to provide a smoother experience for developers."
-            />
-          </div>
-          <div class="row s4 center-align">
-            <IconBlock
-              icon="assignment"
-              title="Easy to Work With"
-              descr="We did most of the heavy lifting for you to provide a default stylings that 
-            incorporate our custom components. Additionally, we refined animations and transitions 
-            to provide a smoother experience for developers."
+              title="Accessible"
+              descr="Acessibility and modification without any waste of time can be achieve using this web app."
             />
           </div>
         </div>
@@ -70,20 +35,29 @@ class Section2 extends Component {
 
 function IconBlock(props) {
   return (
-    <div className="icon-block" >
-      <h2 className="center white-text">
-        <i className="medium material-icons" style={{ fontSize:"30px" }}>{props.icon}</i>
-        <h5 className="center" style={{ fontSize:"20px" }}>{props.title}</h5>
-        <p className="light" style={{ 
-                display: "block",
-                marginBlockStart: "1em",
-                marginBlockEnd: "1em",
-                marginInlineStart: "0px",
-                marginInlineEnd: "0px",
-                fontSize:"20px" 
-
-         }}>{props.descr}</p>
-      </h2>
+    <div className="icon-block container">
+      <div className="center">
+        <i className="medium material-icons" style={{ fontSize: "30px" }}>
+          {props.icon}
+        </i>
+        <h5 className="center" style={{ fontSize: "20px", fontWeight: "700" }}>
+          {props.title}
+        </h5>
+        <p
+          className="light"
+          style={{
+            display: "block",
+            marginBlockStart: "1em",
+            marginBlockEnd: "1em",
+            marginInlineStart: "0px",
+            marginInlineEnd: "0px",
+            lineHeight: "155%",
+            fontSize: "15px",
+          }}
+        >
+          {props.descr}
+        </p>
+      </div>
     </div>
   );
 }

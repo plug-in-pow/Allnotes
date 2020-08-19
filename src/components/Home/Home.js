@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Navbar from './Navbar';
-import Section1 from './Section1';
-import Section2 from './Section2';
+import React, { Component } from "react";
+import Section1 from "./Section1";
+import Section2 from "./Section2";
+import Footer from "./Footer";
 
 class Home extends Component {
-    render() {
-        return (
-            < BrowserRouter >
-                <div className="Home">
-                    <Navbar />
-                    <Section1 />
-                    <Section2 />
-                </div>
-            </BrowserRouter>
-        );
-    }
+  render() {
+    return (
+      <div className="Home blue lighten-5">
+        <Section1 />
+        <Section2 />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default Home;
