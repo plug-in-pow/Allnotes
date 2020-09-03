@@ -1,7 +1,10 @@
 const initState = {
   notes: [
     {
-      id: 1,
+      id: "1",
+      title:"First notes",
+      desc:"descrip - 1",
+      arrayPosition : "1",
       data: {
         blocks: [
           {
@@ -23,7 +26,9 @@ const initState = {
     },
 
     {
-      id: 2,
+      id: "2",
+      title:"Second notes",
+      desc:"descrip - 2 losdffsdsdsd",
       data: {
         blocks: [
           {
@@ -45,7 +50,9 @@ const initState = {
     },
 
     {
-      id: 3,
+      id: "3",
+      title:"Third notes",
+      desc:"descrip - 3 klASFLksadcf.ms",
       data: {
         blocks: [
           {

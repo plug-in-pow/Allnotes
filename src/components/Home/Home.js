@@ -6,7 +6,7 @@ import Footer from "./Footer";
 class Home extends Component {
   render() {
     return (
-      <div className="Home blue lighten-5">
+      <div className="Home">
         <Section1 />
         <Section2 />
         <Footer />

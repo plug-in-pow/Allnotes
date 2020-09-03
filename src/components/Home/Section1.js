@@ -10,11 +10,9 @@ class Section1 extends Component {
         <div className="col">
           <div className="col s6 center-align bold-text">
             <h4>
-              Want to write same notes{" "}
-              <span role="img" aria-label="notes-emoji">
-                📝
-              </span>
-              , then you are at the right place.
+              Want to write same notes
+              <br/>then you are at the
+              right place.
             </h4>
           </div>
           <div className="col s6 center-align">

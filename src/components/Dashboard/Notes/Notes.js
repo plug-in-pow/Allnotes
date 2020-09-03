@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import NotesCard from './NotesCard';
 
-class Notes extends Component {
-  render() {
+const Notes = ({notes}) => {
     return (
-        <div className="notes">
-            <NotesCard />
-            <NotesCard />
-            <NotesCard />
-            <NotesCard />
-            <NotesCard />
+        <div className="col container">
+            {
+              notes && notes.map(note =>{
+                return (
+                  <NotesCard note={note} key={note.id}/>
+                );
+              })
+            }
         </div>
     );
-  }
 }
 
 export default Notes;

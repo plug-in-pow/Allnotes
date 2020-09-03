@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Navbar extends Component {
     render() {
         return (
-            <nav className="nav-wrapper blue lighten-5 z-depth-0">
+            <nav className="nav-wrapper z-depth-0">
                 <div className="container">
                     <Link to="/" className="brand-logo blue-text"><b>Allnotes</b></Link>
                     <SignOutLinks />

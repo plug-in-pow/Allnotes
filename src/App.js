@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard/Main/Dashboard";
 import NotesDetail from "./components/Dashboard/Notes/NotesDetail";
 import Login from "./components/Auth/Login/Login";
 import SignUp from "./components/Auth/SignUp/SignUp";
+import AddNewNotes from "./components/Dashboard/Notes/AddNewNotes";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route path="/dashboard/:id" component={NotesDetail} />
+          <Route path="/dashboard/editor" component={NotesDetail} />
+          <Route path="/dashboard/addnote" component={AddNewNotes} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
         </Switch>
