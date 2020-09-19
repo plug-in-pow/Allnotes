@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { createNote } from '../../../store/actions/noteAction';
 
 class AddNewNotesForm extends Component {
   state = {
@@ -14,7 +16,7 @@ class AddNewNotesForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createNote(this.state);
   };
 
   render() {
@@ -28,7 +30,7 @@ class AddNewNotesForm extends Component {
           <input type="text" id="title" onChange={this.handleChange} />
         </div>
         <div className="input-field">
-          <label htmlFor="description">
+          <label htmlFor="textarea1">
             Short Description *
           </label>
           <textarea id="textarea1" className="materialize-textarea" onChange={this.handleChange} />
@@ -48,4 +50,10 @@ class AddNewNotesForm extends Component {
   }
 }
 
-export default AddNewNotesForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createNote: (data) => dispatch(createNote(data))
+  }
+}
+
+export default connect(null,mapDispatchToProps)(AddNewNotesForm);

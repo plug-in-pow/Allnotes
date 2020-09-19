@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import EditorJs from "react-editor-js";
 import { EDITOR_JS_TOOLS } from "./tools";
 import { connect } from "react-redux";
+import { updateNote } from '../../../store/actions/noteAction';
 
 class NotesDetail extends Component {
   handleSave = async (e) => {
     const savedData = await this.editorInstance.save();
-    console.log(savedData);
+    this.props.updateNote(savedData);
   };
 
   handleDelete = (e) => {
@@ -26,8 +27,6 @@ class NotesDetail extends Component {
                 className="card z-depth-0 green-text center-align"
                 style={{
                   backgroundColor: "#edf7ed",
-                  // borderStyle: "solid",
-                  // borderColor: "#55aef5",
                   padding:"10px",
                   borderRadius:"10px"
                 }}
@@ -95,4 +94,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(NotesDetail);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateNote: (note) => dispatch(updateNote(note))
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(NotesDetail);
