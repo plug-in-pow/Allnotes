@@ -30,10 +30,10 @@ class AddNewNotesForm extends Component {
           <input type="text" id="title" onChange={this.handleChange} />
         </div>
         <div className="input-field">
-          <label htmlFor="textarea1">
+          <label htmlFor="description">
             Short Description *
           </label>
-          <textarea id="textarea1" className="materialize-textarea" onChange={this.handleChange} />
+          <textarea id="description" className="materialize-textarea" onChange={this.handleChange} />
         </div>
         <div style={{ marginTop: "5%" }}>
           <button

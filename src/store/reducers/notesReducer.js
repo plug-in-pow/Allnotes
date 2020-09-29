@@ -30,13 +30,19 @@ const initState = {
 const notesReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_NOTE":
-      console.log("created note", action.data);
-      break;
+      console.log("created note", action.notesMetaData);
+      return state;
+      case "CREATE_NOTE_ERR":
+        console.log("create note error", action.err);
+        return state;
     case "UPDATE_NOTE":
       console.log("updated note", action.note);
-      break;
+      return state;
+    default:
+      return state;
+      
   }
-  return state;
+
 };
 
 export default notesReducer;
