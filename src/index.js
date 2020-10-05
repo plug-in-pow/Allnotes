@@ -16,7 +16,7 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reduxFirestore(firebase, fbconfig)
+    reduxFirestore(fbconfig)
   )
 );
 

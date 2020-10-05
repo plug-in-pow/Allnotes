@@ -21,27 +21,46 @@ export const createNote = (notesMetaData) => {
   };
 };
 
-export const updateNote = (note) => {
+export const updateNote = (note,id) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // make async call to db
 
-    // const firestore = getFirestore();
-    // firestore
-    //   .collection("notesMetaData")
-    //   .add({
-    //     notesId: 1234,
-    //     ...notesMetaData,
-    //     createdAt: new Date(),
-    //     lastEdited: new Date(),
-    //     data: {},
-    //   })
-    //   .then(() => {
-    //     dispatch({ type: "UPDATE_NOTE", note });
-    //   })
-    //   .catch((err) => {
-    //     dispatch({ type: "UPDATE_NOTE_ERR", err });
-    //   });
+    const firestore = getFirestore();
+    var data = {};
+    if (note.blocks.length !== 0){
+      data = note;
+    }
+    firestore
+      .collection("notesMetaData")
+      .doc(id)
+      .update({
+        data: data,
+        lastEdited: new Date(),
+      })
+      .then(() => {
+        dispatch({ type: "UPDATE_NOTE", note });
+      })
+      .catch((err) => {
+        dispatch({ type: "UPDATE_NOTE_ERR", err });
+      });
+  };
+};
 
-      dispatch({ type: "UPDATE_NOTE", note });
+export const deleteNote = (id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // make async call to db
+
+    const firestore = getFirestore();
+    const message = "Deleted"
+    firestore
+      .collection("notesMetaData")
+      .doc(id)
+      .delete()
+      .then(() => {
+        dispatch({ type: "DELETE_NOTE", message });
+      })
+      .catch((err) => {
+        dispatch({ type: "DELETE_NOTE_ERR", err });
+      });
   };
 };

@@ -1,11 +1,11 @@
 import React from "react";
 import NotesCard from './NotesCard';
 
-const Notes = ({notes}) => {
+const Notes = ({notesMetaData}) => {
     return (
         <div className="col container">
             {
-              notes && notes.map(note =>{
+              notesMetaData && notesMetaData.map(note =>{
                 return (
                   <NotesCard note={note} key={note.id}/>
                 );

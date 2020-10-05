@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { createNote } from '../../../store/actions/noteAction';
+import { withRouter } from 'react-router-dom'; 
 
 class AddNewNotesForm extends Component {
   state = {
@@ -17,6 +18,7 @@ class AddNewNotesForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createNote(this.state);
+    this.props.history.push('/dashboard'); 
   };
 
   render() {
@@ -56,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(AddNewNotesForm);
+export default connect(null,mapDispatchToProps)(withRouter(AddNewNotesForm));

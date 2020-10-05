@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Notes from "../Notes/Notes";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from 'react-redux-firebase';
 
 class Dashboard extends Component {
   render() {
-    const { notes } = this.props;
+    const { notesMetaData } = this.props;
 
     return (
       <div className="dashboard notes-container container">
@@ -23,7 +25,7 @@ class Dashboard extends Component {
             </button>
           </a>
         </div>
-        <Notes notes={notes} />
+        <Notes notesMetaData={notesMetaData} />
       </div>
     );
   }
@@ -31,8 +33,11 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.note.notes,
+    notesMetaData: state.firestore.ordered.notesMetaData,
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+  firestoreConnect([{collection:'notesMetaData'}]),
+  connect(mapStateToProps)
+  )(Dashboard);
