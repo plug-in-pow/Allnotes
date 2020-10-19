@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { createNote } from '../../../store/actions/noteAction';
 import { withRouter } from 'react-router-dom'; 
+import { Redirect } from 'react-router-dom';
 
 class AddNewNotesForm extends Component {
   state = {
@@ -22,6 +23,9 @@ class AddNewNotesForm extends Component {
   };
 
   render() {
+    const { auth } = this.props;
+    if(!auth.uid) return <Redirect to='/login' />
+
     return (
       <form onSubmit={this.handleSubmit} className="white">
         <h5 className="grey-text text-darken-3">Add new note</h5>
@@ -52,10 +56,16 @@ class AddNewNotesForm extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNote: (data) => dispatch(createNote(data))
+    createNote: (data) => dispatch(createNote(data)),
   }
 }
 
-export default connect(null,mapDispatchToProps)(withRouter(AddNewNotesForm));
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(AddNewNotesForm));

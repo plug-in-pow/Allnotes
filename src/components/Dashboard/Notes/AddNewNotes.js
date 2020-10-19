@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import AddNewNotesForm from "./AddNewNotesForm";
+import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
 class AddNewNotes extends Component {
   render() {
+    const { auth } = this.props;
+    if(!auth.uid) return <Redirect to='/login' />
+
     return (
       <div
         className="container valign-wrapper center-align"
@@ -22,5 +27,10 @@ class AddNewNotes extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
 
-export default AddNewNotes;
+export default  connect(mapStateToProps)(AddNewNotes);

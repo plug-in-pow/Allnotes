@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signIn } from "../../../store/actions/authActions";
 
 class LoginForm extends Component {
   state = {
@@ -14,7 +16,7 @@ class LoginForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signIn(this.state);
   };
   render() {
     return (
@@ -46,4 +48,10 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(LoginForm);

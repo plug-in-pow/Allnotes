@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { signOut } from "../../store/actions/authActions"
 
 class SignOutLinks extends Component {
   render() {
     return (
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li>
-          <NavLink to="/" className="black-text">
+          <NavLink to="/" onClick={this.props.signOut} className="black-text">
             Sign Out
           </NavLink>
         </li>
@@ -28,4 +30,10 @@ class SignOutLinks extends Component {
   }
 }
 
-export default SignOutLinks;
+const mapDispatchToProps = (dispatch) => {  
+  return {
+    signOut: () => dispatch(signOut())
+  }
+}
+
+export default connect(null,mapDispatchToProps)(SignOutLinks);

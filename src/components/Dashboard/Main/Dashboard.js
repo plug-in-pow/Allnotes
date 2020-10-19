@@ -3,10 +3,12 @@ import Notes from "../Notes/Notes";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
-    const { notesMetaData } = this.props;
+    const { notesMetaData, auth } = this.props;
+    if(!auth.uid) return <Redirect to='/login' />
 
     return (
       <div className="dashboard notes-container container">
@@ -34,6 +36,7 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   return {
     notesMetaData: state.firestore.ordered.notesMetaData,
+    auth: state.firebase.auth,
   };
 };
 

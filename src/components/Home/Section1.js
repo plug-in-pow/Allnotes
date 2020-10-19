@@ -1,8 +1,28 @@
 import React, { Component } from "react";
 import HomeImage from "../../assets/planbw.png";
+import { connect } from "react-redux";
 
 class Section1 extends Component {
   render() {
+    const { auth } = this.props;
+    const link = !auth.uid ? (
+      <a
+        className="waves-effect waves-light btn-small blue darken-4 z-depth-5"
+        href="/signup"
+        style={{ borderRadius: "20px", margin: "5%" }}
+      >
+        Sign Up Free
+      </a>
+    ) : (
+      <a
+        className="waves-effect waves-light btn-small blue darken-4 z-depth-5"
+        href="/dashboard"
+        style={{ borderRadius: "20px", margin: "5%" }}
+      >
+        Dashboard
+      </a>
+    );
+
     return (
       <div
         className="container center-align"
@@ -16,17 +36,17 @@ class Section1 extends Component {
               then you are at the right place.
             </h4>
             <h6>Write once acess any time.</h6>
-            <a
-              className="waves-effect waves-light btn-small blue darken-4 z-depth-5"
-              href="/signup"
-              style={{ borderRadius: "20px", margin: "5%" }}
-            >
-              Sign Up Free
-            </a>
+            {auth.isLoaded && link}
           </div>
-
+          
           <div className="col s12 m6 center-align">
-            <img src={HomeImage} alt="Home" loading="lazy" height={230} style={{margin: "5%" }} />
+            <img
+              src={HomeImage}
+              alt="Home"
+              loading="lazy"
+              height={230}
+              style={{ margin: "5%" }}
+            />
           </div>
         </div>
 
@@ -36,4 +56,10 @@ class Section1 extends Component {
   }
 }
 
-export default Section1;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Section1);

@@ -4,6 +4,7 @@ import { EDITOR_JS_TOOLS } from "./tools";
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom'; 
 import { updateNote , deleteNote } from "../../../store/actions/noteAction";
+import { Redirect } from 'react-router-dom';
 
 class NotesDetail extends Component {
   
@@ -20,6 +21,8 @@ class NotesDetail extends Component {
 
   render() {
     const notes = this.props.location.state;
+    const { auth } = this.props;
+    if(!auth.uid) return <Redirect to='/login' />
 
     if (notes.length !== 0) {
       return (
@@ -89,12 +92,11 @@ class NotesDetail extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   console.log(state);
-//   return {
-//     notes: state.note.data,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -102,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
     deleteNote: (id) => dispatch(deleteNote(id)),
   };
 };
-export default connect(null,mapDispatchToProps)(withRouter(NotesDetail));
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(NotesDetail));

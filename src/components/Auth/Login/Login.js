@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import LoginForm from "./LoginForm";
+import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   render() {
+    const { auth } = this.props;
+    if(auth.uid) return <Redirect to='/dashboard' />
+
     return (
       <div
         className="container valign-wrapper center-align"
@@ -22,5 +27,10 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
 
-export default Login;
+export default connect(mapStateToProps)(Login);
