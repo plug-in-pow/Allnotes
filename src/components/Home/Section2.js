@@ -9,7 +9,7 @@ class Section2 extends Component {
             <IconBlock
               icon="settings"
               title="Easy to Work With"
-              descr="With simple UI and minimalistic features anyone can easily get start working with it."
+              descr="With simple UI and minimalistic features, anyone can easily get started working with it."
             />
           </div>
           <div className="col s12 m4">
@@ -24,7 +24,7 @@ class Section2 extends Component {
             <IconBlock
               icon="assignment"
               title="Accessible"
-              descr="Acessibility and modification without any waste of time can be achieve using this web app."
+              descr="Accessibility and modification without any waste of time can be achieved using this web app."
             />
           </div>
         </div>

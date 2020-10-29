@@ -2,27 +2,27 @@ import React, { Component } from "react";
 import EditorJs from "react-editor-js";
 import { EDITOR_JS_TOOLS } from "./tools";
 import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom'; 
-import { updateNote , deleteNote } from "../../../store/actions/noteAction";
-import { Redirect } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import { updateNote, deleteNote } from "../../../store/actions/noteAction";
+import { Redirect } from "react-router-dom";
+import moment from "moment";
 
 class NotesDetail extends Component {
-  
   handleSave = async (e) => {
     const savedData = await this.editorInstance.save();
-    this.props.updateNote(savedData,this.props.location.state.id);
-    this.props.history.push('/dashboard'); 
+    this.props.updateNote(savedData, this.props.location.state.id);
+    this.props.history.push("/dashboard");
   };
 
   handleDelete = (e) => {
     this.props.deleteNote(this.props.location.state.id);
-    this.props.history.push('/dashboard'); 
+    this.props.history.push("/dashboard");
   };
 
   render() {
     const notes = this.props.location.state;
     const { auth } = this.props;
-    if(!auth.uid) return <Redirect to='/login' />
+    if (!auth.uid) return <Redirect to="/login" />;
 
     if (notes.length !== 0) {
       return (
@@ -65,19 +65,24 @@ class NotesDetail extends Component {
 
                 <EditorJs
                   tools={EDITOR_JS_TOOLS}
-                  instanceRef={instance => this.editorInstance = instance}
+                  instanceRef={(instance) => (this.editorInstance = instance)}
                   data={notes.data}
                   logLevel="ERROR"
                 />
               </div>
               <div
-                className="card-action blue lighten-4"
+                className="card-action lighten-4 blue-text"
                 style={{
                   borderBottomRightRadius: "8px",
                   borderBottomLeftRadius: "8px",
                 }}
               >
-                <div>Last edited : {notes.title}</div>
+                <div>
+                  Created on  :  {moment(notes.createdAt.toDate()).calendar()}
+                </div>
+                <div>
+                  Last Edited on  :  {moment(notes.lastEdited.toDate()).calendar()} 
+                </div>
               </div>
             </div>
           </div>
@@ -100,8 +105,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateNote: (note,id) => dispatch(updateNote(note,id)),
+    updateNote: (note, id) => dispatch(updateNote(note, id)),
     deleteNote: (id) => dispatch(deleteNote(id)),
   };
 };
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(NotesDetail));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(NotesDetail));

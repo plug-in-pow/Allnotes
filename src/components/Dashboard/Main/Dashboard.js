@@ -27,13 +27,14 @@ class Dashboard extends Component {
             </button>
           </a>
         </div>
-        <Notes notesMetaData={notesMetaData} />
+        <Notes notesMetaData={notesMetaData} auth={auth}/>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+
   return {
     notesMetaData: state.firestore.ordered.notesMetaData,
     auth: state.firebase.auth,

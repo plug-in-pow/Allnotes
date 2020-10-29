@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 class SignUp extends Component {
   render() {
-    const { auth } = this.props;
+    const { auth, authError } = this.props;
     if(auth.uid) return <Redirect to='/dashboard' />
 
     return (
@@ -17,7 +17,7 @@ class SignUp extends Component {
           <div className="col">
             <div className="card">
               <div className="card-content white-text center-align">
-                <SignUpForm />
+                <SignUpForm authError={authError}/>
               </div>
             </div>
           </div>

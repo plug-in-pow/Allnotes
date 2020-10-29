@@ -19,6 +19,8 @@ class LoginForm extends Component {
     this.props.signIn(this.state);
   };
   render() {
+    const { authError } = this.props;
+
     return (
       <form onSubmit={this.handleSubmit} className="white">
         <h5 className="grey-text text-darken-3">Log in</h5>
@@ -42,9 +44,20 @@ class LoginForm extends Component {
           >
             Submit
           </button>
+          <div className="red-text center">
+            {console.log("Message : ",authError)}
+            {authError ? <p>{authError}</p> : null}
         </div>
+        </div>
+        
       </form>
     );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    authError : state.auth.authError
   }
 }
 
@@ -54,4 +67,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

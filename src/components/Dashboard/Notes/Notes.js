@@ -1,14 +1,18 @@
 import React from "react";
 import NotesCard from './NotesCard';
 
-const Notes = ({notesMetaData}) => {
+const Notes = ({notesMetaData,auth}) => {
     return (
         <div className="col container">
             {
               notesMetaData && notesMetaData.map(note =>{
-                return (
-                  <NotesCard note={note} key={note.id}/>
-                );
+                if (note.authorId === auth.uid){
+                  return (
+                    <NotesCard note={note} key={note.id}/>
+                  );
+                }else{
+                  return null
+                }
               })
             }
         </div>

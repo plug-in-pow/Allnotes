@@ -3,10 +3,15 @@ export const createNote = (notesMetaData) => {
     // make async call to db
 
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const authorId =  getState().firebase.auth.uid;
+
     firestore
       .collection("notesMetaData")
       .add({
-        notesId: 1234,
+        authorId: authorId,
+        authorFirstName: profile.firstName,
+        authorLastName: profile.lastName,
         ...notesMetaData,
         createdAt: new Date(),
         lastEdited: new Date(),
