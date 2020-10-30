@@ -34,7 +34,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-
   return {
     notesMetaData: state.firestore.ordered.notesMetaData,
     auth: state.firebase.auth,

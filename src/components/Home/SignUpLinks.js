@@ -6,8 +6,8 @@ class SignUpLinks extends Component {
       <div>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="/" className="black-text">
-              About
+            <a href="/aboutUs" className="black-text">
+              About Us
             </a>
           </li>
           <li>
@@ -38,8 +38,8 @@ class SignUpLinks extends Component {
           </li>
 
           <li>
-            <a href="/" className="black-text">
-              About
+            <a href="/aboutus" className="black-text">
+              About Us
             </a>
           </li>
         </ul>

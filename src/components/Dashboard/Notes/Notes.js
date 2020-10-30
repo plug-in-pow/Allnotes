@@ -5,7 +5,7 @@ const Notes = ({notesMetaData,auth}) => {
     return (
         <div className="col container">
             {
-              notesMetaData && notesMetaData.map(note =>{
+              notesMetaData && notesMetaData.slice(0).reverse().map(note =>{
                 if (note.authorId === auth.uid){
                   return (
                     <NotesCard note={note} key={note.id}/>

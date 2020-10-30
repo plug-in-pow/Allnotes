@@ -3,11 +3,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Home/Navbar";
 import Home from "./components/Home/Home.js";
+import AboutUs from "./components/Aboutus/AboutUs.js";
 import Dashboard from "./components/Dashboard/Main/Dashboard";
 import NotesDetail from "./components/Dashboard/Notes/NotesDetail";
 import Login from "./components/Auth/Login/Login";
 import SignUp from "./components/Auth/SignUp/SignUp";
 import AddNewNotes from "./components/Dashboard/Notes/AddNewNotes";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/aboutus" component={AboutUs} />
+          <Route exact path="/profile" component={Profile} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/dashboard/editor" component={NotesDetail} />
           <Route path="/dashboard/addnote" component={AddNewNotes} />

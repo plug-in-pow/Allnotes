@@ -14,8 +14,13 @@ class SignOutLinks extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" className="black-text">
-              Settings
+            <NavLink to="/profile" className="black-text">
+              Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/aboutus" className="black-text">
+              About Us
             </NavLink>
           </li>
           <li>
@@ -26,10 +31,16 @@ class SignOutLinks extends Component {
               {this.props.profile.initials}
             </NavLink>
           </li>
+          
         </ul>
         <ul className="sidenav" id="slide-out">
           <li>
             <h2 className="black-text center">Menu</h2>
+          </li>
+          <li>
+            <NavLink to="/" className="black-text">
+              Home
+            </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard" className="black-text">
@@ -44,6 +55,11 @@ class SignOutLinks extends Component {
           <li>
             <NavLink to="/" onClick={this.props.signOut} className="black-text">
               Sign Out
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/aboutus" className="black-text">
+              About Us
             </NavLink>
           </li>
         </ul>
