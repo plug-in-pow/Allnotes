@@ -9,29 +9,24 @@ class Profile extends Component {
 
     return (
       <div
-        className="container valign-wrapper center-align wrap-text"
-        style={{ top: "50px" }}
+        className="container white center-align "
+        style={{ padding:"1%" ,borderRadius:"20px"}}
       >
-        <div className="row">
-        <div className="card">
-              <div className="card-content center-align black-text">
-          <div className="divider"></div>
-          <div className="section">
-            <div className="col s6">First Name :</div>
-            <div className="col s6">{profile.firstName}</div>
-          </div>
-          <div className="divider"></div>
-          <div className="section">
-            <div className="col s6">Last Name :</div>
-            <div className="col s6">{profile.lastName}</div>
-          </div>
-          <div className="divider"></div>
-          <div className="section">
-            <div className="col s6">Email :</div>
-            <div className="col s6 ">{auth.email}</div>
+        <h5>Personal info</h5>
+        <div className="row truncate">
+              <div className="section">
+                <div className="col s6">First Name :</div>
+                <div className="col s6">{profile.firstName}</div>
+              </div>
+              <div className="section">
+                <div className="col s6">Last Name :</div>
+                <div className="col s6">{profile.lastName}</div>
+              </div>
+              <div className="section">
+                <div className="col s6">Email :</div>
+                <div className="col s6 ">{auth.email}</div>
           </div>
         </div>
-        </div></div>
       </div>
     );
   }

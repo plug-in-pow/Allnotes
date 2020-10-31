@@ -11,7 +11,8 @@ class AboutUs extends Component {
               src={AboutPageImage}
               alt="Home"
               loading="lazy"
-              height={500}
+              height={450}
+              width={250}
               style={{ margin: "5%" }}
             />
           </div>

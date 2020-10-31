@@ -20,6 +20,12 @@ import {
 } from "react-redux-firebase";
 import fbconfig from "./config/fbcofig";
 
+/** 
+ * Redux store initialization prior to the loading of React App.
+ * rootReducer - Represent the root of all the sub-reducers.
+ * compose - It is used when you want to pass multiple store enhancers to the store.
+ * thunk is used as a middleware
+*/
 const store = createStore(
   rootReducer,
   compose(

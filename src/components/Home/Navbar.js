@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import M from 'materialize-css';
 
 class Navbar extends Component {
-
+  
   componentDidMount() {
     const slide_menu = document.querySelectorAll(".sidenav");
     M.Sidenav.init(slide_menu, {});
@@ -52,7 +52,6 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     auth: state.firebase.auth,
     profile: state.firebase.profile,

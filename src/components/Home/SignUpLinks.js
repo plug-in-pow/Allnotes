@@ -1,19 +1,31 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import M from "materialize-css";
 
 class SignUpLinks extends Component {
+  handleClick = (e) => {
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu, {});
+  };
+
   render() {
     return (
       <div>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <a href="/aboutUs" className="black-text">
-              About Us
-            </a>
+        <li>
+            <NavLink to="/" onClick={this.handleClick} className="black-text">
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href="/login" className="black-text">
+            <NavLink to="/aboutUs" onClick={this.handleClick} className="black-text">
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" onClick={this.handleClick} className="black-text">
               Login
-            </a>
+            </NavLink>
           </li>
         </ul>
         <ul className="sidenav" id="slide-out">
@@ -21,26 +33,26 @@ class SignUpLinks extends Component {
             <h2 className="black-text center">Menu</h2>
           </li>
           <li>
-            <a href="/" className="black-text">
+            <NavLink to="/" onClick={this.handleClick} className="black-text">
               Home
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="/signup" className="black-text">
+            <NavLink to="/signup"  onClick={this.handleClick} className="black-text">
               Sign Up
-            </a>
+            </NavLink>
           </li>
 
           <li>
-            <a href="/login" className="black-text">
+            <NavLink to="/login" onClick={this.handleClick} className="black-text">
               Login
-            </a>
+            </NavLink>
           </li>
 
           <li>
-            <a href="/aboutus" className="black-text">
+            <NavLink to="/aboutus" onClick={this.handleClick} className="black-text">
               About Us
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

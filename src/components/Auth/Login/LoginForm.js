@@ -45,7 +45,6 @@ class LoginForm extends Component {
             Submit
           </button>
           <div className="red-text center">
-            {console.log("Message : ",authError)}
             {authError ? <p>{authError}</p> : null}
         </div>
         </div>
