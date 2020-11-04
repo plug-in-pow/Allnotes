@@ -1,11 +1,8 @@
 # Allnotes
 In this project we try to implement few features of Evernote.
 
-<a href="https://allnotes-d605d.web.app/">
-    <h3>
-        <b>Visit Allnotes website</b>
-    <h3>
-</a>
+<a href="https://allnotes-d605d.web.app/">Visit Allnotes website</a>
+
 
 # Features
 <ul>
